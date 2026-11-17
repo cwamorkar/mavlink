@@ -1500,6 +1500,16 @@
       <field type="uint8_t" name="custom_len">Custom Byte Length.</field>
       <field type="uint8_t[24]" name="custom_bytes">Custom Bytes.</field>
     </message>
+    <message id="190" name="MAG_CAL_SAMPLE">
+      <description>Individual raw magnetometer sample accepted into the compass calibration buffer. Streamed so calibration samples can be captured in the telemetry log.</description>
+      <field type="uint8_t" name="compass_id" instance="true">Compass being calibrated.</field>
+      <field type="uint16_t" name="sample_idx">Index of this sample within the calibration buffer (1-based running count when accepted).</field>
+      <field type="uint16_t" name="count">Total number of samples collected so far for this compass.</field>
+      <field type="int8_t" name="section">Geodesic section [0,80) the corrected sample fell in, or -1 if it could not be determined.</field>
+      <field type="float" name="x" units="mgauss">Raw magnetometer sample X, body frame.</field>
+      <field type="float" name="y" units="mgauss">Raw magnetometer sample Y, body frame.</field>
+      <field type="float" name="z" units="mgauss">Raw magnetometer sample Z, body frame.</field>
+    </message>
     <message id="191" name="MAG_CAL_PROGRESS">
       <description>Reports progress of compass calibration.</description>
       <field type="uint8_t" name="compass_id" instance="true">Compass being calibrated.</field>
